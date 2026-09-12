@@ -952,6 +952,440 @@ button { font-family: var(--font); cursor: pointer; border: none; outline: none;
 .text-center { text-align: center; }
 .mt-1 { margin-top: 1rem; }
 .mt-2 { margin-top: 2rem; }
+
+
+/* =========================================================
+   RESPONSIVE SAFETY LAYER
+   Added without changing the existing desktop structure,
+   content, links, forms, animations or JavaScript.
+   ========================================================= */
+
+/* Prevent long words/controls from creating horizontal overflow */
+.wrap,
+.hero-text,
+.bento-card,
+.skill-item,
+.prog-card,
+.aud-card,
+.faq-item,
+.footer-brand,
+.footer-col {
+  min-width: 0;
+}
+
+h1, h2, h3, p, a, button, label, select, input {
+  overflow-wrap: break-word;
+}
+
+/* Tablet / smaller laptops */
+@media (max-width: 1024px) {
+  .wrap {
+    padding-left: clamp(1rem, 3vw, 2rem);
+    padding-right: clamp(1rem, 3vw, 2rem);
+  }
+
+  .section {
+    padding-top: clamp(4rem, 8vw, 7rem);
+    padding-bottom: clamp(4rem, 8vw, 7rem);
+  }
+
+  .hero {
+    padding-top: calc(var(--nav) + 2.5rem);
+    padding-bottom: 4rem;
+  }
+
+  .hero-glass-row {
+    max-width: 100%;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+
+  .bento-card,
+  .prog-head,
+  .prog-body,
+  .skill-item,
+  .aud-card,
+  .testi-card {
+    padding-left: clamp(1.25rem, 3vw, 2rem);
+    padding-right: clamp(1.25rem, 3vw, 2rem);
+  }
+
+  .footer-links-row {
+    gap: 2.25rem;
+  }
+}
+
+/* Tablet portrait + large phones */
+@media (max-width: 820px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .hero-content {
+    gap: 2.5rem;
+  }
+
+  .hero-text {
+    max-width: 100%;
+  }
+
+  .skills-layout {
+    gap: 2.5rem;
+  }
+
+  .skill-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .journey-track {
+    justify-content: flex-start;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+
+  .journey-step {
+    flex: 0 0 140px;
+    scroll-snap-align: center;
+  }
+
+  .js-connector {
+    flex: 0 0 28px;
+  }
+
+  .footer-top {
+    gap: 2rem;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  :root {
+    --nav: 62px;
+  }
+
+  .wrap {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  /* Keep headings strong, but prevent them from becoming oversized */
+  .h1 {
+    font-size: clamp(2.35rem, 12vw, 3.35rem);
+    line-height: 1.02;
+    letter-spacing: -0.045em;
+  }
+
+  .h2 {
+    font-size: clamp(1.9rem, 9vw, 2.65rem);
+    line-height: 1.08;
+  }
+
+  .h3 {
+    font-size: 1.2rem;
+  }
+
+  .eyebrow {
+    font-size: 0.66rem;
+    letter-spacing: 0.11em;
+  }
+
+  .hero {
+    padding: calc(var(--nav) + 2rem) 0 3.5rem;
+  }
+
+  .hero-badge {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.35;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-sub {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    margin-bottom: 2rem;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-btns .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-glass-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .hero-glass-card {
+    width: 100%;
+    min-width: 0;
+    padding: 0.65rem 0.75rem;
+    font-size: 0.78rem;
+  }
+
+  .hero-glass-card .dot {
+    flex-shrink: 0;
+  }
+
+  .hero-stats {
+    display: block;
+    padding-top: 1.75rem;
+    margin-top: 0.75rem;
+  }
+
+  .hero-stat-num {
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+
+  .hero-stat-label {
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  .trust {
+    padding: 1.5rem 0;
+  }
+
+  .trust-inner {
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  .trust-item {
+    font-size: 0.76rem;
+    padding: 0.45rem 0.7rem;
+  }
+
+  .bento-header,
+  .programs-header,
+  .audience-header,
+  .testi-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .bento-card {
+    padding: 1.35rem;
+  }
+
+  .bento-big-num {
+    font-size: 3rem;
+  }
+
+  /* The percentage bars need to remain usable on narrow phones */
+  .bc-bar-row {
+    display: grid;
+    grid-template-columns: minmax(78px, auto) minmax(0, 1fr) auto;
+    gap: 0.5rem;
+  }
+
+  .bc-bar-row > span:first-child {
+    min-width: 0 !important;
+    white-space: normal;
+  }
+
+  .skills-text p {
+    max-width: none;
+  }
+
+  .skill-row {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-item[style*="grid-column"] {
+    grid-column: auto !important;
+  }
+
+  .skill-item {
+    padding: 1rem;
+  }
+
+  .programs-grid {
+    gap: 1rem;
+  }
+
+  .prog-head {
+    padding-top: 1.5rem;
+    padding-bottom: 1.25rem;
+  }
+
+  .prog-body {
+    padding-top: 1.35rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .prog-list {
+    margin-bottom: 1.5rem;
+  }
+
+  .aud-card {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .journey-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .journey-track {
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .testi-card {
+    padding: 1.35rem;
+  }
+
+  .faq-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .faq-q {
+    padding: 1rem 1.1rem;
+    font-size: 0.9rem;
+  }
+
+  .faq-body-inner {
+    padding: 0 1.1rem 1.1rem;
+    font-size: 0.86rem;
+  }
+
+  .cta-final {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .cta-final p {
+    font-size: 0.95rem;
+  }
+
+  .cta-final .sr.sr-d3 {
+    max-width: none !important;
+    margin-top: 2rem !important;
+    padding: 1.25rem !important;
+  }
+
+  /* Prevent iOS/Android browsers from zooming inputs and selects */
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+
+  footer {
+    padding-top: 2.5rem;
+  }
+
+  .footer-top {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer-links-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.75rem 1.25rem;
+  }
+
+  .footer-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+}
+
+/* Very narrow phones */
+@media (max-width: 380px) {
+  .wrap {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .h1 {
+    font-size: clamp(2.15rem, 12vw, 2.8rem);
+  }
+
+  .hero-glass-row {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-glass-card {
+    justify-content: flex-start;
+  }
+
+  .bc-bar-row {
+    grid-template-columns: 72px minmax(0, 1fr) auto;
+    font-size: 0.72rem;
+  }
+
+  .faq-q {
+    gap: 0.65rem;
+  }
+
+  .faq-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .footer-links-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Touch devices: remove hover movement that can feel awkward on phones */
+@media (hover: none) and (pointer: coarse) {
+  .bento-card:hover,
+  .prog-card:hover,
+  .aud-card:hover,
+  .skill-item:hover {
+    transform: none;
+  }
+
+  .btn-primary:hover,
+  .btn-ghost:hover,
+  .btn-glow:hover,
+  .btn-outline-light:hover {
+    transform: none;
+  }
+}
+
+/* Respect users who have requested reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 </style>
 </head>
 <body>
